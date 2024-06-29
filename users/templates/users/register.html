@@ -1,0 +1,59 @@
+
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    #signup-btn{
+        background: linear-gradient(to bottom right,rgb(69, 0, 86) ,rgb(82, 0, 206)); 
+            -webkit-background-clip: text;background-clip: text;
+            color: transparent; 
+            border-color: rgb(67, 0, 154);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #signup-btn:hover{
+            background: linear-gradient(to bottom right,rgb(0, 0, 0) ,rgb(82, 0, 206)); 
+            color: white;
+        }
+
+        #signup-btn:active{
+            background: linear-gradient(to bottom right,rgb(82, 0, 206),rgb(0, 0, 0)); 
+            color: white;
+        }
+
+     #join-btn{
+        background: linear-gradient(to bottom right,rgb(69, 0, 86) ,rgb(82, 0, 206)); 
+        -webkit-background-clip: text;background-clip: text;
+        color: transparent; 
+    }
+
+    #sign-btn{
+        background: linear-gradient(to bottom right,rgb(69, 0, 86) ,rgb(82, 0, 206)); 
+        -webkit-background-clip: text;background-clip: text;
+        color: transparent; 
+    }
+
+    #sign-btn:hover{
+        text-decoration-line: underline;
+        text-decoration-color: blueviolet;
+    }
+
+</style>
+  <div class="content-section" style="background: linear-gradient(to bottom right,rgb(255, 255, 255) ,rgb(231, 214, 255));">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4"  id="join-btn">Join Today</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit" id="signup-btn">Sign Up</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2" href="% url 'login' % " id="sign-btn">Sign In</a>
+        </small>
+    </div>
+  </div>
+{% endblock content %}

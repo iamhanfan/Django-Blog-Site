@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    background-image: url('img/bg.jpg'); /* Ensure the path to the image is correct */
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+.site-header {
+    background-color: #292b2c; /* Dark background color */
+    padding: 30px 0; /* Add vertical padding */
+    position:sticky;
+    top:0;
+    margin-bottom: 0;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem; /* Increase font size for brand */
+  }
+
+  .navbar-nav .nav-item .nav-link {
+    padding: 10px 20px; /* Add padding to nav links */
+  }
+
+  /* Active link styles */
+  .navbar-nav .nav-item .nav-link.active {
+    background-color: #007bff; /* Blue background color for active links */
+    color: #fff; /* Text color for active links */
+  }
+
+  main{
+    margin: 0;
+    display: flex;
+  }
+  .left-container{
+    width: 50%;
+    height: 70vh; 
+
+  }
+
+  .img-container{
+    display: flex;
+    width:75%;
+    height:450px;
+    gap:1rem;
+    margin-top: 15%;
+    margin-left: 10%;
+    padding: 20px 30px;
+    justify-content: center;
+}
+
+.img-container>div{
+    flex: 1;
+    border-radius: 10px;
+    transition: all 1s;
+}
+
+.img-container > div:nth-child(1){
+    background-image: url(img/ipl.jpg);
+    background-position: center;
+    background-size: cover;
+    animation: slideup 4s;
+}
+
+.img-container>div:nth-child(2){
+    background-image:  url(img/movies.jpg);
+    background-position: center;
+    background-size: cover;
+    animation: slidedown 4s;
+}
+
+.img-container>div:nth-child(3){
+    background-image:  url(img/news.jpg);
+    background-position: center;
+    background-size: cover;
+    animation: slideup 4s;
+}
+
+.img-container>div:nth-child(4){
+    background-image:  url(img/football.jpg);
+    background-position: center;
+    background-size: cover;
+    animation: slidedown 4s;
+}
+
+.img-container>div:hover{
+    flex: 8;
+}
+
+.right-container{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    flex-direction: column;
+    font-family: Outfit;
+    animation: slideright 4s;
+}
+
+.title{
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 20%;
+    background: linear-gradient(to bottom right,rgb(0, 0, 0) ,rgb(82, 0, 206)); 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+    transition: all 4s;
+}
+
+.title:hover{
+    background: linear-gradient(to bottom right,rgb(82, 0, 206),rgb(0, 0, 0) ); 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  
+}
+
+.headline{
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: rgb(70, 70, 70);
+}
+
+.description{
+    width: 90%;
+    text-align: justify;
+}
+
+@keyframes slideup{
+    from{
+        transform: translateY(100%);
+    }
+    to{
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slidedown{
+    from{
+        transform: translateY(-30%);
+    }
+    to{
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slideright{
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateY(0%);
+    }
+}
+

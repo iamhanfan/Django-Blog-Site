@@ -1,0 +1,22 @@
+
+{% extends "blog/base.html" %}
+{% block content %}
+    <style>
+        #signup-btn{
+            background: linear-gradient(to bottom right,rgb(69, 0, 86) ,rgb(82, 0, 206)); 
+            -webkit-background-clip: text;background-clip: text;
+            color: transparent; 
+        }
+
+        #signup-btn:hover{
+            text-decoration-line: underline;
+            text-decoration-color: blueviolet;
+        }
+
+    </style>
+    <h2  style="background: linear-gradient(to bottom right,rgb(0, 0, 0) ,rgb(82, 0, 206)); -webkit-background-clip: text;background-clip: text;color: transparent;">You have been logged out</h2>
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <a class="ml-2" href="{% url 'login' %}" id="signup-btn">Log In Again</a>
+    </form>
+{% endblock content %}

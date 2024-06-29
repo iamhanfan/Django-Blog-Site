@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <style>
+       #profile-info{
+        background: linear-gradient(to bottom right,rgb(69, 0, 86) ,rgb(82, 0, 206)); 
+        -webkit-background-clip: text;background-clip: text;
+        color: transparent; 
+    }
+
+    #update-btn{
+        background: linear-gradient(to bottom right,rgb(69, 0, 86) ,rgb(82, 0, 206)); 
+            -webkit-background-clip: text;background-clip: text;
+            color: transparent; 
+            border-color: rgb(67, 0, 154);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #update-btn:hover{
+            background: linear-gradient(to bottom right,rgb(0, 0, 0) ,rgb(82, 0, 206)); 
+            color: white;
+        }
+
+        #update-btn:active{
+            background: linear-gradient(to bottom right,rgb(82, 0, 206),rgb(0, 0, 0)); 
+            color: white;
+        }
+
+    </style>
+    <div class="content-section" style="background: linear-gradient(to bottom right,rgb(255, 255, 255) ,rgb(231, 214, 255));">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" style="width: 100px; height: 100px; margin-right: 20px;">
+        <div class="media-body">
+          <h2 class="account-heading"  style="background: linear-gradient(to bottom right,rgb(0, 0, 0) ,rgb(102, 0, 255)); -webkit-background-clip: text;background-clip: text;color: transparent;">{{ user.username }}</h2>
+          <p class="text-secondary"  style="background: linear-gradient(to bottom right,rgb(204, 0, 255) ,rgb(82, 0, 206)); -webkit-background-clip: text;background-clip: text;color: transparent;">{{ user.email }}</p>
+        </div>
+      </div>
+
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4" id="profile-info">Profile Info</legend>
+            {{ u_form|crispy }}
+            {{ p_form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit" id="update-btn">Update</button>
+        </div>
+    </form>
+    
+    </div>
+{% endblock content %}
+

@@ -1,0 +1,62 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<style>
+    #delete-btn {
+        background: linear-gradient(to bottom right,rgb(86, 0, 0) ,rgb(206, 0, 0)); 
+        -webkit-background-clip: text;background-clip: text;
+        color: transparent; 
+        border-color: rgb(154, 0, 0);
+        transition: background-color 0.3s, color 0.3s;
+    }
+  
+    #delete-btn:hover {
+        background: linear-gradient(to bottom right,rgb(0, 0, 0) ,rgb(206, 0, 0)); 
+        color: white;
+    }
+  
+    #delete-btn:active {
+      background: linear-gradient(to bottom right,rgb(206, 0, 0),rgb(0, 0, 0)); 
+      color: white;
+    }
+
+    #cancel-btn{
+            background: linear-gradient(to bottom right,rgb(69, 0, 86) ,rgb(82, 0, 206)); 
+            -webkit-background-clip: text;background-clip: text;
+            color: transparent; 
+            border-color: rgb(67, 0, 154);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #cancel-btn:hover{
+            background: linear-gradient(to bottom right,rgb(0, 0, 0) ,rgb(82, 0, 206)); 
+            color: white;
+        }
+
+        #cancel-btn:active{
+            background: linear-gradient(to bottom right,rgb(82, 0, 206),rgb(0, 0, 0)); 
+            color: white;
+        }
+
+        #title{
+            background: linear-gradient(to bottom right,rgb(69, 0, 86) ,rgb(82, 0, 206)); 
+            -webkit-background-clip: text;background-clip: text;
+            color: transparent; 
+        }
+
+    
+  
+  </style>
+    <div class="content-section" style="background: linear-gradient(to bottom right,rgb(255, 255, 255) ,rgb(231, 214, 255));">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4" id="title">Delete Post</legend>
+                <h2>Are you sure you want to delete the post "{{ object.title }}"</h2>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit" id="delete-btn">Yes, Delete</button>
+                <a class="btn btn-outline-secondary" href="{% url 'post-detail' object.id %}" id="cancel-btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

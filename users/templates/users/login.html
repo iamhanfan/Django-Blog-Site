@@ -1,0 +1,61 @@
+
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    #login-title{
+        background: linear-gradient(to bottom right,rgb(69, 0, 86) ,rgb(82, 0, 206)); 
+        -webkit-background-clip: text;background-clip: text;
+        color: transparent; 
+    }
+
+    #login-btn{
+        background: linear-gradient(to bottom right,rgb(69, 0, 86) ,rgb(82, 0, 206)); 
+            -webkit-background-clip: text;background-clip: text;
+            color: transparent; 
+            border-color: rgb(67, 0, 154);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #login-btn:hover{
+            background: linear-gradient(to bottom right,rgb(0, 0, 0) ,rgb(82, 0, 206)); 
+            color: white;
+        }
+
+        #login-btn:active{
+            background: linear-gradient(to bottom right,rgb(82, 0, 206),rgb(0, 0, 0)); 
+            color: white;
+        }
+
+        #signup-btn{
+            background: linear-gradient(to bottom right,rgb(69, 0, 86) ,rgb(82, 0, 206)); 
+            -webkit-background-clip: text;background-clip: text;
+            color: transparent; 
+        }
+
+        #signup-btn:hover{
+            text-decoration-line: underline;
+            text-decoration-color: blueviolet;
+        }
+
+
+
+</style>
+  <div class="content-section" style="background: linear-gradient(to bottom right,rgb(255, 255, 255) ,rgb(231, 214, 255));">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4" id="login-title">Log In</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit" id="login-btn">Login</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Need An Account? <a class="ml-2" href="{% url 'login' %}" id="signup-btn">Sign Up Now</a>
+        </small>
+    </div>
+  </div>
+{% endblock content %}
